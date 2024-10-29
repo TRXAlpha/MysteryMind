@@ -11,7 +11,7 @@ batch_size = 39  # Changed from 4 to 39
 block_size = 8
 max_iters = 5000
 eval_iters = 200
-learning_rate = 1e-3
+learning_rate = 1e-3 # decreased te learning rate because teh self-attention can't tollerate high rates
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 n_embd=32
 #--------
@@ -47,13 +47,7 @@ def get_batch(split):
 
 # Get a batch of data
 xb, yb = get_batch('train')
-#print('inputs:')
-#print(xb.shape)
-#print(xb)
-#print('targets:')
-#print(yb.shape)
-#print(yb)
-#print('----')
+
 
 # Print context and target for each element
 for b in range(batch_size):
